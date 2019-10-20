@@ -1,0 +1,8 @@
+curl -d "{\"word\":\"Computer Science\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/interest/add
+curl -d "{\"word\":\"Physics\"}" -H "Content-Type: application/json" -X POST http://localhost:8080/interest/add
+
+curl -d "{\"username\":\"admin\",\"firstname\":\"Abinet\",\"lastname\":\"Debele\",\"password\":\"admin123\",\"interests\":[{\"id\":1},{\"id\":2}]}" -H "Content-Type: application/json"  -X POST http://localhost:8080/user/add
+
+curl -d "{\"user\":{\"id\":1},\"title\":\"Test Post\",\"content\":\"Test content\",\"imageUrl\":\"admin123\",\"interests\":[{\"id\":1},{\"id\":2}]}" -H "Content-Type: application/json"  -X POST http://localhost:8080/blog/add
+curl -d "{\"userId\":1,\"postId\":1}" -H "Content-Type: application/json"  -X POST http://localhost:8080/blog/like
+curl -d "{\"user\":{\"id\":1},\"post\":{\"id\":1},\"text\":\"Test comment\"}" -H "Content-Type: application/json"  -X POST http://localhost:8080/blog/comment
