@@ -33,13 +33,16 @@ public class BlogServiceImpl implements BlogService {
 
 	@Override
 	public Post LikePost(Post post, User user) {
-		post=post.addLiker(user);
+		//post.getLikers();
+		post.addLiker(user);
 		return br.save(post);
 	}
 
 	@Override
-	public Post addComment(Post post, User user, Comment comment) {
-		
+	public Post addComment(Post post, User user, String text) {
+		Comment comment=new Comment();
+		comment.setUser(user);
+		comment.setText(text);
 		post.addComment(comment);
 		commentRepo.save(comment);
 		return br.save(post);

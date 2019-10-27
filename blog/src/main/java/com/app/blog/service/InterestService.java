@@ -1,6 +1,7 @@
 package com.app.blog.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -12,5 +13,6 @@ public interface InterestService {
 	
 	List<Interest> getAllInterests();
 	Interest addInterest(Interest interest);
+	Optional<Interest> getInterest(int id);
 	
 }

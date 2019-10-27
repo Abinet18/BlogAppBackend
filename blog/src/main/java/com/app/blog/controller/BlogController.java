@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.blog.model.Comment;
+import com.app.blog.model.CommentInput;
 import com.app.blog.model.Interest;
 import com.app.blog.model.Like;
 import com.app.blog.model.Post;
@@ -69,10 +70,10 @@ public class BlogController {
 	}
 	
 	@PostMapping("/blog/comment")
-	Post commentOnPost(@RequestBody Comment comment )
+	Post commentOnPost(@RequestBody CommentInput commentInput )
 	{
-		Post post=blogService.getPost(comment.getPost().getId()).get();
-		User user=userService.getUser(comment.getUser().getId()).get();
-		return blogService.addComment(post,user,comment);	
+		Post post=blogService.getPost(commentInput.getPostid()).get();
+		User user=userService.getUser(commentInput.getUserid()).get();
+		return blogService.addComment(post,user,commentInput.getText());	
 	}
 }

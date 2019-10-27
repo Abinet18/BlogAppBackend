@@ -1,0 +1,71 @@
+type Interest {
+    id:ID!
+    word:String!
+}
+type User {
+    id: ID!
+    username: String!
+    firstname: String!
+    lastname: String!
+    interests: [Interest]
+}
+type Comment {
+    id: ID!
+    user:User!
+    text:String!
+}
+
+type Post {
+    id:ID!
+    user:User!
+    title:String!
+    content:String!
+    imageUrl:String
+    likers:[User]
+    comments:[Comment]
+    interests:[Interest]
+    totalLikes:Int
+    totalComments:Int
+}
+
+input UserInput {
+    username:String!
+    firstName:String!
+    lastName:String!
+    password:String!
+    interests:[ID]
+}
+
+input PostInput {
+    userid:ID
+    title:String!
+    content:String!
+    interests:[ID]
+    imageUrl:String
+}
+
+input LikeInput {
+    userId:ID!
+    postId:ID!
+}
+
+input CommentInput {
+    userid:ID!
+    postid:ID!
+    text:String!
+}
+
+type Query {
+    allInterests:[Interest]
+    allUsers:[User]
+    allPosts:[Post]
+}
+
+type Mutation {
+    addInterest(interest:String!):Interest
+    addUser(user:UserInput):User
+    addPost(post:PostInput):Post
+    likePost(like:LikeInput):Post
+    commentOnPost(comment:CommentInput):Post
+}
+

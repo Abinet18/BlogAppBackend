@@ -22,9 +22,6 @@ public class Comment {
 	@ManyToOne
 	User user;
 	
-	@ManyToOne
-	Post post;
-	
 	String text;
 
 	public User getUser() {
@@ -34,15 +31,7 @@ public class Comment {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	@JsonBackReference
-	public Post getPost() {
-		return post;
-	}
-
-	public void setPost(Post post) {
-		this.post = post;
-	}
+		
 
 	public String getText() {
 		return text;

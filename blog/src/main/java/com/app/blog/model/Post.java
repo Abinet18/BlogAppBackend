@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,10 +30,9 @@ public class Post {
 	List<Interest> interests;
 	String content;
 	String imageUrl;
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	List<User> likers;
-	@OneToMany
-	@JsonManagedReference
+	@OneToMany(fetch=FetchType.EAGER)
 	List<Comment> comments;
 	
 	int totalComments;

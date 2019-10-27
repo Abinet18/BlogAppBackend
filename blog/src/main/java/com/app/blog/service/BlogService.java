@@ -15,6 +15,6 @@ public interface BlogService {
 	List<Post> getAllPosts();
 	Post addPost(Post post);
 	Post LikePost(Post post,User user);
-	Post addComment(Post post,User user,Comment comment);
+	Post addComment(Post post,User user,String text);
 	Optional<Post> getPost(Long id);
 }
